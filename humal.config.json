@@ -1,0 +1,5 @@
+{
+  "entry": "./main.hum",
+  "sourceDir": ".",
+  "module": "cjs"
+}

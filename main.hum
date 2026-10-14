@@ -1,0 +1,82 @@
+let crypto = require("crypto")
+
+let reward = 50
+let balance = 0
+
+let myAddress = address()
+
+while true
+    print ""
+    print "Welcome to CLI Wallet"
+    print "Address: test" + myAddress
+    print "1 - mine"
+    print "2 - show balance"
+    print "3 - look latest hash block"
+    print "4 - send coin"
+    print "5 - exit"
+
+    let command = input "Command: "
+    if command == "1"
+        mine()
+    elif command == "2"
+        print "Your balance: " + balance
+    elif command == "3"
+        print "Block Hash: " + blockHash()
+    elif command == "4"
+        send()
+    elif command == "5"
+        break
+    else
+        print "Invalid command"
+
+fn blockHash()
+    let random = crypto.randomBytes(32)
+    let hash = crypto.createHash("sha256")
+    hash.update(random)
+    let result = hash.digest("hex")
+    return result
+
+fn miningHash(data)
+    let hash = crypto.createHash("sha256")
+    hash.update(data)
+    let result = hash.digest("hex")
+    return result
+
+fn address()
+    let hash = crypto.createHash("sha256")
+    hash.update("test")
+    let result = hash.digest("hex")
+    return result
+
+fn send()
+    let receiver = input "Receiver address: "
+    let amountInput = input "Amount: "
+    let amount = Number(amountInput)
+
+    if amount <= balance
+        balance = balance - amount
+        print "Transaction complete"
+        print "Sent: " + amount
+        print "To: " + receiver
+        print "Your balance: " + balance
+    else
+        print "Not enough balance"
+
+fn mine()
+    let nonce = 0
+    let difficulty = "000000"
+
+    print "Mining..."
+
+    while true
+        let data = "Block data " + nonce
+        let hash = miningHash(data)
+        if hash.startsWith(difficulty)
+            print "Block found!"
+            print "Nonce: " + nonce
+            print "Hash: " + hash
+            balance = balance + reward
+            print "Reward: " + reward
+            return hash
+
+        nonce++

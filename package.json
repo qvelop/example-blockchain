@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "private": true,
+  "scripts": {
+    "dev": "humal dev",
+    "build": "humal build",
+    "check": "humal check"
+  },
+  "devDependencies": {
+    "@qvelop444/humal": "1.3.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
