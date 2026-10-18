@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="600" height="52" viewBox="0 0 600 52">
+  <rect x="0" y="0" width="600" height="8"
+        rx="4" fill="#A68A64"/>
+  <circle cx="7" cy="32" r="5" fill="#A68A64"/>
+  <text x="20" y="37" font-family="Arial, sans-serif"
+        font-size="16" fill="#A68A64">Humal</text>
+  <text x="590" y="37" text-anchor="end"
+        font-family="Arial, sans-serif"
+        font-size="16" fill="#A68A64">100%</text>
+</svg>
